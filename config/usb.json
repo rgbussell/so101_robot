@@ -1,0 +1,12 @@
+{
+    "leader_arm": {
+    "description": "so 101 Leader Arm",
+    "id": "leader_arm",
+    "port": "/dev/tty.usbmodem5A680109561"
+    },
+    "follower_arm" : {
+    "description": "so 101 Follower Arm",
+    "id": "follower_arm",
+    "port": "/dev/tty.usbmodem5A680085401"
+    }
+}

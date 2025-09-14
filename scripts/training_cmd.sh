@@ -13,13 +13,20 @@ python -m lerobot.record \
     --dataset.episode_time_s=15 \
     --dataset.reset_time=5
 
+# replay a training episode
+python -m lerobot.replay \
+  --robot.type=so101_follower \
+  --robot.port=/dev/tty.usbmodem5A680085401 \
+  --robot.id=my_follower_arm \
+  --dataset.repo_id=${HF_USER}/record-test \
+  --dataset.episode=0
 
-    # train the model
+# train the model
 python -m lerobot.scripts.train \
-  --dataset.repo_id=${HF_USER}/so101_test \
+  --dataset.repo_id=${HF_USER}/record-test \
   --policy.type=act \
-  --output_dir=outputs/train/act_so101_test \
-  --job_name=act_so101_test \
-  --policy.device=cuda \
+  --output_dir=outputs/train/act_record_test \
+  --job_name=act_record_test \
+  --policy.device=mps \
   --wandb.enable=true \
   --policy.repo_id=${HF_USER}/my_policy
